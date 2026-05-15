@@ -1,19 +1,69 @@
-<footer class="my-20">
-  <p class="text-center text-sm text-slate-500">
-    Copyright © {new Date().getFullYear()} Astroship. All rights reserved.
-  </p>
-  <!--
-    Can we ask you a favor 🙏
-    Please keep this backlink on your website if possible.
-    or Purchase a commercial license from https://web3templates.com
-  -->
-  <p class="text-center text-xs text-slate-500 mt-1">
-    Made by <a
-      href="https://web3templates.com"
-      target="_blank"
-      rel="noopener"
-      class="hover:underline">
-      Web3Templates
-    </a>
-  </p>
+---
+import Container from "@/components/container.astro";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-32 border-t border-border bg-primary text-primary-foreground">
+  <Container>
+    <div class="grid gap-12 py-20 md:grid-cols-12">
+      <div class="md:col-span-5">
+        <div class="flex items-center gap-3">
+          <span aria-hidden="true" class="inline-flex h-9 w-9 items-center justify-center rounded-sm bg-accent text-accent-foreground font-display text-base">
+            TH
+          </span>
+          <div class="leading-tight">
+            <p class="font-display text-base font-semibold">Thorsten Hungerland</p>
+            <p class="text-[11px] uppercase tracking-[0.18em] text-primary-foreground/60 mt-1">
+              Sanitär · Heizung · Meisterbetrieb
+            </p>
+          </div>
+        </div>
+        <p class="mt-6 max-w-md text-sm leading-relaxed text-primary-foreground/70">
+          Der freundliche Klempner aus Springe. Seit 2005 Ihr inhabergeführter Familienbetrieb
+          für Badplanung, Heizungstechnik, Solaranlagen und Wasseraufbereitung.
+        </p>
+      </div>
+
+      <div class="md:col-span-3">
+        <p class="text-xs uppercase tracking-[0.18em] text-primary-foreground/50">Navigation</p>
+        <ul class="mt-5 space-y-3 text-sm">
+          <li><a href="/leistungen" class="text-primary-foreground/80 transition hover:text-accent">Leistungen</a></li>
+          <li><a href="/badplanung" class="text-primary-foreground/80 transition hover:text-accent">Badplanung</a></li>
+          <li><a href="/ueber-uns" class="text-primary-foreground/80 transition hover:text-accent">Über uns</a></li>
+          <li><a href="/kontakt" class="text-primary-foreground/80 transition hover:text-accent">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-4">
+        <p class="text-xs uppercase tracking-[0.18em] text-primary-foreground/50">Kontakt</p>
+        <address class="mt-5 not-italic text-sm leading-relaxed text-primary-foreground/80">
+          Thorsten Hungerland<br />
+          Sanitär- und Heizungstechnik<br />
+          Eldagsener Straße 28<br />
+          31832 Springe
+        </address>
+        <ul class="mt-5 space-y-2 text-sm">
+          <li>
+            <a href="tel:+4951419328930" class="text-primary-foreground/80 transition hover:text-accent">
+              05141 / 93 28 930
+            </a>
+          </li>
+          <li>
+            <a href="mailto:info@thorsten-hungerland.de" class="text-primary-foreground/80 transition hover:text-accent">
+              info@thorsten-hungerland.de
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="flex flex-col items-start justify-between gap-4 border-t border-primary-foreground/10 py-8 text-xs text-primary-foreground/50 md:flex-row md:items-center">
+      <p>© {year} Thorsten Hungerland Sanitär- und Heizungstechnik. Alle Rechte vorbehalten.</p>
+      <ul class="flex gap-6">
+        <li><a href="/kontakt" class="transition hover:text-accent">Impressum</a></li>
+        <li><a href="/kontakt" class="transition hover:text-accent">Datenschutz</a></li>
+      </ul>
+    </div>
+  </Container>
 </footer>

@@ -1,0 +1,134 @@
+---
+import Container from "@/components/container.astro";
+import Layout from "@/layouts/Layout.astro";
+
+const values = [
+  { title: "Meisterhand", desc: "Echter Meistertitel, klare Verantwortung. Bei uns plant und prüft der Meister persönlich." },
+  { title: "Ehrlich", desc: "Wir beraten herstellerunabhängig und sagen klar, was geht — und was nicht. Auch wenn das mal weniger Auftrag bedeutet." },
+  { title: "Pünktlich", desc: "Termine werden gehalten. Und falls doch einmal etwas dazwischenkommt, hören Sie es rechtzeitig von uns." },
+  { title: "Sauber", desc: "Eine saubere Baustelle ist für uns Selbstverständlichkeit — nicht Verhandlungssache." },
+];
+---
+
+<Layout title="Über uns" description="Seit 2005 Ihr inhabergeführter Familienbetrieb für Sanitär- und Heizungstechnik in Springe. Lernen Sie Thorsten Hungerland kennen.">
+  {/* Hero */}
+  <section class="border-b border-border">
+    <Container>
+      <div class="grid gap-12 py-20 md:grid-cols-12 md:py-28">
+        <div class="md:col-span-7">
+          <div class="flex items-center gap-3">
+            <span class="h-px w-10 bg-accent"></span>
+            <span class="text-xs uppercase tracking-[0.22em] text-muted-foreground">Über uns</span>
+          </div>
+          <h1 class="font-display mt-6 text-balance text-5xl font-medium leading-[1.02] tracking-tight text-foreground md:text-7xl">
+            Der freundliche Klempner — seit 2005.
+          </h1>
+          <p class="mt-8 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground">
+            Thorsten Hungerland Sanitär- und Heizungstechnik ist Ihr inhabergeführter
+            Familienbetrieb aus Springe. Was 2005 als Ein-Mann-Werkstatt begann, ist heute
+            ein eingespieltes Team — mit dem gleichen Anspruch wie am ersten Tag: gute
+            Arbeit, ehrlich abgerechnet.
+          </p>
+        </div>
+        <div class="md:col-span-5">
+          <div class="aspect-[4/5] overflow-hidden rounded-sm bg-muted">
+            <img
+              src="/images/craftsman.jpg"
+              alt="Hände eines Handwerkers an einer Werkbank mit Werkzeug und Kupferrohren"
+              class="h-full w-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  {/* Quote / story */}
+  <section class="border-b border-border bg-surface py-24 md:py-32">
+    <Container>
+      <div class="grid gap-12 md:grid-cols-12">
+        <div class="md:col-span-4">
+          <span class="text-xs uppercase tracking-[0.22em] text-muted-foreground">Unser Anspruch</span>
+        </div>
+        <div class="md:col-span-8">
+          <p class="font-display text-balance text-3xl leading-[1.2] tracking-tight text-foreground md:text-4xl">
+            &ldquo;Ein Bad oder eine Heizung baut man nicht für ein Jahr, sondern für ein
+            Vierteljahrhundert. Genau so denken wir auch — bei jedem einzelnen Projekt.&rdquo;
+          </p>
+          <p class="mt-8 text-sm uppercase tracking-[0.18em] text-muted-foreground">
+            Thorsten Hungerland — Sanitär- &amp; Heizungstechnikermeister
+          </p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  {/* Values */}
+  <section class="py-24 md:py-32">
+    <Container>
+      <div class="max-w-2xl">
+        <div class="flex items-center gap-3">
+          <span class="h-px w-10 bg-accent"></span>
+          <span class="text-xs uppercase tracking-[0.22em] text-muted-foreground">Werte</span>
+        </div>
+        <h2 class="font-display mt-5 text-balance text-4xl font-medium leading-[1.05] tracking-tight text-foreground md:text-5xl">
+          Vier Dinge, auf die Sie sich bei uns verlassen können.
+        </h2>
+      </div>
+
+      <div class="mt-16 grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2 md:grid-cols-4">
+        {values.map((v, i) => (
+          <div class="flex flex-col bg-surface p-8">
+            <span class="font-display text-xs uppercase tracking-[0.22em] text-accent">0{i + 1}</span>
+            <h3 class="font-display mt-5 text-2xl tracking-tight text-foreground">{v.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{v.desc}</p>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  {/* Facts */}
+  <section class="border-y border-border bg-primary text-primary-foreground">
+    <Container>
+      <dl class="grid gap-12 py-24 sm:grid-cols-2 md:grid-cols-4 md:py-28">
+        {[
+          { k: "Gegründet", v: "2005" },
+          { k: "Region", v: "Springe & Umland" },
+          { k: "Meisterbetrieb", v: "Sanitär & Heizung" },
+          { k: "Service", v: "Aus einer Hand" },
+        ].map((f) => (
+          <div>
+            <dt class="text-xs uppercase tracking-[0.22em] text-primary-foreground/50">{f.k}</dt>
+            <dd class="font-display mt-4 text-3xl tracking-tight md:text-4xl">{f.v}</dd>
+          </div>
+        ))}
+      </dl>
+    </Container>
+  </section>
+
+  {/* CTA */}
+  <section class="py-24 md:py-32">
+    <Container>
+      <div class="grid gap-10 md:grid-cols-12 md:items-end">
+        <div class="md:col-span-8">
+          <h2 class="font-display text-balance text-5xl font-medium leading-[1.02] tracking-tight text-foreground md:text-6xl">
+            Lernen Sie uns persönlich kennen.
+          </h2>
+          <p class="mt-6 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground">
+            Wir freuen uns auf Ihren Anruf, Ihre Nachricht oder Ihren Besuch im Badstudio in Springe.
+          </p>
+        </div>
+        <div class="md:col-span-4 md:text-right">
+          <a
+            href="/kontakt"
+            class="inline-flex items-center justify-center gap-2 rounded-sm bg-primary px-7 py-4 text-sm font-medium text-primary-foreground transition hover:bg-foreground"
+          >
+            Kontakt aufnehmen <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </Container>
+  </section>
+</Layout>

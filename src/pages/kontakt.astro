@@ -1,0 +1,153 @@
+---
+import Container from "@/components/container.astro";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout title="Kontakt" description="Kontakt zu Thorsten Hungerland Sanitär- und Heizungstechnik in Springe. Telefon, E-Mail und Badstudio.">
+  <section class="border-b border-border">
+    <Container>
+      <div class="grid gap-10 py-20 md:grid-cols-12 md:py-28">
+        <div class="md:col-span-7">
+          <div class="flex items-center gap-3">
+            <span class="h-px w-10 bg-accent"></span>
+            <span class="text-xs uppercase tracking-[0.22em] text-muted-foreground">Kontakt</span>
+          </div>
+          <h1 class="font-display mt-6 text-balance text-5xl font-medium leading-[1.02] tracking-tight text-foreground md:text-7xl">
+            Sprechen wir über Ihr Projekt.
+          </h1>
+        </div>
+        <div class="md:col-span-5 md:pt-2">
+          <p class="text-pretty text-lg leading-relaxed text-muted-foreground">
+            Ob Badsanierung, neue Heizung oder kurzfristiger Notdienst — wir hören zu und finden
+            die passende Lösung. Schreiben Sie uns oder rufen Sie an. Wir freuen uns auf Sie.
+          </p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <section class="py-24 md:py-32">
+    <Container>
+      <div class="grid gap-16 md:grid-cols-12">
+        {/* Contact info */}
+        <div class="md:col-span-5">
+          <ul class="space-y-10">
+            <li>
+              <p class="text-xs uppercase tracking-[0.22em] text-muted-foreground">Anschrift</p>
+              <address class="font-display mt-3 not-italic text-xl leading-relaxed text-foreground">
+                Thorsten Hungerland<br />
+                Sanitär- und Heizungstechnik<br />
+                Eldagsener Straße 28<br />
+                31832 Springe
+              </address>
+            </li>
+            <li>
+              <p class="text-xs uppercase tracking-[0.22em] text-muted-foreground">Telefon</p>
+              <a href="tel:+4951419328930" class="font-display mt-3 inline-block text-xl text-foreground hover:text-accent">
+                05141 / 93 28 930
+              </a>
+            </li>
+            <li>
+              <p class="text-xs uppercase tracking-[0.22em] text-muted-foreground">E-Mail</p>
+              <a href="mailto:info@thorsten-hungerland.de" class="font-display mt-3 inline-block text-xl text-foreground hover:text-accent">
+                info@thorsten-hungerland.de
+              </a>
+            </li>
+            <li>
+              <p class="text-xs uppercase tracking-[0.22em] text-muted-foreground">Öffnungszeiten Badstudio</p>
+              <dl class="mt-3 space-y-1 text-base text-foreground">
+                <div class="flex justify-between border-b border-border py-2">
+                  <dt class="text-muted-foreground">Mo – Fr</dt><dd>08:00 – 17:00 Uhr</dd>
+                </div>
+                <div class="flex justify-between border-b border-border py-2">
+                  <dt class="text-muted-foreground">Samstag</dt><dd>nach Vereinbarung</dd>
+                </div>
+                <div class="flex justify-between border-b border-border py-2">
+                  <dt class="text-muted-foreground">Notdienst</dt><dd>24 / 7</dd>
+                </div>
+              </dl>
+            </li>
+          </ul>
+        </div>
+
+        {/* Form */}
+        <div class="md:col-span-7">
+          <form
+            class="space-y-6 rounded-sm border border-border bg-surface p-6 md:p-10"
+            action="mailto:info@thorsten-hungerland.de"
+            method="post"
+            enctype="text/plain"
+          >
+            <div class="grid gap-6 sm:grid-cols-2">
+              <label class="block">
+                <span class="text-xs uppercase tracking-[0.18em] text-muted-foreground">Name</span>
+                <input
+                  required
+                  type="text"
+                  name="name"
+                  class="mt-2 block w-full border-0 border-b border-border bg-transparent px-0 py-2 text-base text-foreground placeholder:text-muted-foreground focus:border-foreground focus:outline-none focus:ring-0"
+                  placeholder="Ihr Name"
+                />
+              </label>
+              <label class="block">
+                <span class="text-xs uppercase tracking-[0.18em] text-muted-foreground">Telefon</span>
+                <input
+                  type="tel"
+                  name="phone"
+                  class="mt-2 block w-full border-0 border-b border-border bg-transparent px-0 py-2 text-base text-foreground placeholder:text-muted-foreground focus:border-foreground focus:outline-none focus:ring-0"
+                  placeholder="optional"
+                />
+              </label>
+            </div>
+            <label class="block">
+              <span class="text-xs uppercase tracking-[0.18em] text-muted-foreground">E-Mail</span>
+              <input
+                required
+                type="email"
+                name="email"
+                class="mt-2 block w-full border-0 border-b border-border bg-transparent px-0 py-2 text-base text-foreground placeholder:text-muted-foreground focus:border-foreground focus:outline-none focus:ring-0"
+                placeholder="ihre@email.de"
+              />
+            </label>
+            <label class="block">
+              <span class="text-xs uppercase tracking-[0.18em] text-muted-foreground">Thema</span>
+              <select
+                name="topic"
+                class="mt-2 block w-full border-0 border-b border-border bg-transparent px-0 py-2 text-base text-foreground focus:border-foreground focus:outline-none focus:ring-0"
+              >
+                <option>Badsanierung</option>
+                <option>Heizungsbau</option>
+                <option>Solaranlage</option>
+                <option>Wasseraufbereitung</option>
+                <option>Notdienst</option>
+                <option>Sonstiges</option>
+              </select>
+            </label>
+            <label class="block">
+              <span class="text-xs uppercase tracking-[0.18em] text-muted-foreground">Nachricht</span>
+              <textarea
+                required
+                name="message"
+                rows="5"
+                class="mt-2 block w-full border-0 border-b border-border bg-transparent px-0 py-2 text-base text-foreground placeholder:text-muted-foreground focus:border-foreground focus:outline-none focus:ring-0"
+                placeholder="Erzählen Sie uns kurz von Ihrem Projekt"
+              ></textarea>
+            </label>
+
+            <div class="flex flex-col gap-4 pt-4 sm:flex-row sm:items-center sm:justify-between">
+              <p class="text-xs text-muted-foreground">
+                Mit dem Absenden willigen Sie der Verarbeitung Ihrer Daten zur Bearbeitung der Anfrage zu.
+              </p>
+              <button
+                type="submit"
+                class="inline-flex items-center justify-center gap-2 rounded-sm bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition hover:bg-foreground"
+              >
+                Anfrage senden <span aria-hidden="true">→</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </Container>
+  </section>
+</Layout>

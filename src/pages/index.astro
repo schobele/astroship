@@ -1,17 +1,322 @@
 ---
 import Container from "@/components/container.astro";
-import Cta from "@/components/cta.astro";
-import Features from "@/components/features.astro";
-import Hero from "@/components/hero.astro";
-import Logos from "@/components/logos.astro";
 import Layout from "@/layouts/Layout.astro";
+
+const services = [
+  {
+    no: "01",
+    title: "Badsanierung",
+    desc: "Vom ersten Aufmaß bis zur fertigen Wellnessoase. Wir planen und realisieren Ihr Bad — modern, individuell, aus einer Hand.",
+    href: "/leistungen#badsanierung",
+  },
+  {
+    no: "02",
+    title: "Heizungsbau",
+    desc: "Effiziente Heizungstechnik und Fußbodenheizungen. Wir beraten herstellerunabhängig und installieren mit Meisterhand.",
+    href: "/leistungen#heizungsbau",
+  },
+  {
+    no: "03",
+    title: "Solar",
+    desc: "Klimafreundliche Solaranlagen für Warmwasser und Heizungsunterstützung. Saubere Energie vom Dach Ihres Hauses.",
+    href: "/leistungen#solar",
+  },
+  {
+    no: "04",
+    title: "Wasseraufbereitung",
+    desc: "Beste Wasserqualität für Ihr Zuhause. Enthärtung, Filtration und individuelle Lösungen — sauber, sicher, langlebig.",
+    href: "/leistungen#wasser",
+  },
+];
+
+const steps = [
+  { no: "01", title: "Beratung vor Ort", desc: "Wir kommen zu Ihnen, hören zu und nehmen alles auf — ehrlich, unverbindlich, persönlich." },
+  { no: "02", title: "Planung & Entwurf", desc: "Fachgerechte Handzeichnung, 3-D-Badplanung und transparente Kostenkalkulation." },
+  { no: "03", title: "Montage durch Meister", desc: "Saubere Baustelle, klare Termine. Ein Ansprechpartner — vom Abriss bis zur Fuge." },
+  { no: "04", title: "Service danach", desc: "Wartung, Notdienst und Rundum-Service. Wir sind auch nach dem Bauen für Sie da." },
+];
+
+const testimonials = [
+  {
+    quote: "Ein außergewöhnlich sauberer und ehrlicher Betrieb. Unser neues Bad ist genau so geworden, wie wir es uns erträumt haben — pünktlich und im Budget.",
+    name: "Familie Krause",
+    place: "Springe",
+  },
+  {
+    quote: "Endlich ein Handwerker, der zurückruft. Die neue Heizung läuft perfekt, die Beratung war ausgezeichnet.",
+    name: "M. Brinkmann",
+    place: "Hameln",
+  },
+  {
+    quote: "Vom ersten Gespräch bis zur Übergabe: kompetent, freundlich, präzise. Klare Empfehlung.",
+    name: "Dr. Achilles",
+    place: "Hildesheim",
+  },
+];
 ---
 
-<Layout title="">
-  <Container>
-    <Hero />
-    <Features />
-    <Logos />
-    <Cta />
-  </Container>
+<Layout>
+  {/* HERO */}
+  <section class="relative overflow-hidden">
+    <Container>
+      <div class="grid gap-12 pt-12 pb-20 md:gap-16 md:pt-20 md:pb-28 lg:grid-cols-12 lg:gap-10">
+        <div class="flex flex-col justify-center lg:col-span-6">
+          <div class="flex items-center gap-3">
+            <span class="h-px w-10 bg-accent"></span>
+            <span class="text-xs uppercase tracking-[0.22em] text-muted-foreground">
+              Meisterbetrieb · Seit 2005 · Springe
+            </span>
+          </div>
+          <h1 class="font-display mt-6 text-balance text-5xl font-medium leading-[1.02] tracking-tight text-foreground sm:text-6xl md:text-7xl">
+            Bad, Heizung &amp; Wasser
+            <span class="block text-muted-foreground">aus Meisterhand.</span>
+          </h1>
+          <p class="mt-8 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
+            Thorsten Hungerland ist Ihr inhabergeführter Familienbetrieb für individuelle Badplanung,
+            professionelle Heizungstechnik und klimafreundliche Solaranlagen. Persönlich. Präzise.
+            Mit echter Handschrift.
+          </p>
+          <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <a
+              href="/kontakt"
+              class="inline-flex items-center justify-center gap-2 rounded-sm bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground transition hover:bg-foreground"
+            >
+              Beratung vereinbaren
+              <span aria-hidden="true">→</span>
+            </a>
+            <a
+              href="/leistungen"
+              class="inline-flex items-center justify-center gap-2 rounded-sm border border-border bg-transparent px-6 py-3.5 text-sm font-medium text-foreground transition hover:border-foreground"
+            >
+              Unsere Leistungen
+            </a>
+          </div>
+
+          <dl class="mt-14 grid grid-cols-3 gap-6 border-t border-border pt-8">
+            <div>
+              <dt class="text-xs uppercase tracking-[0.18em] text-muted-foreground">Erfahrung</dt>
+              <dd class="font-display mt-2 text-2xl text-foreground">20 Jahre</dd>
+            </div>
+            <div>
+              <dt class="text-xs uppercase tracking-[0.18em] text-muted-foreground">Region</dt>
+              <dd class="font-display mt-2 text-2xl text-foreground">Springe & Umland</dd>
+            </div>
+            <div>
+              <dt class="text-xs uppercase tracking-[0.18em] text-muted-foreground">Service</dt>
+              <dd class="font-display mt-2 text-2xl text-foreground">Aus einer Hand</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="relative lg:col-span-6">
+          <div class="relative aspect-[4/5] w-full overflow-hidden rounded-sm bg-muted">
+            <img
+              src="/images/hero-bathroom.jpg"
+              alt="Modernes Badezimmer mit freistehender Wanne und warmen Naturtönen"
+              class="h-full w-full object-cover"
+              loading="eager"
+              fetchpriority="high"
+            />
+          </div>
+          <div class="absolute -bottom-6 -left-6 hidden max-w-xs border border-border bg-surface p-5 shadow-sm sm:block lg:-bottom-8 lg:-left-8">
+            <p class="text-xs uppercase tracking-[0.18em] text-muted-foreground">Notdienst</p>
+            <p class="font-display mt-2 text-xl text-foreground">Heizung &amp; Bad — wir kommen.</p>
+            <a href="tel:+4951419328930" class="mt-3 inline-flex items-center gap-2 text-sm text-accent hover:underline">
+              05141 / 93 28 930 <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  {/* INTRO / POSITIONING */}
+  <section class="border-y border-border bg-surface">
+    <Container>
+      <div class="grid gap-10 py-20 md:grid-cols-12 md:py-28">
+        <div class="md:col-span-4">
+          <span class="text-xs uppercase tracking-[0.22em] text-muted-foreground">Der freundliche Klempner</span>
+        </div>
+        <div class="md:col-span-8">
+          <p class="font-display text-balance text-3xl leading-[1.2] tracking-tight text-foreground md:text-4xl">
+            Wir sind kein Großbetrieb — und genau das ist Ihr Vorteil. Bei Thorsten Hungerland
+            betreut Sie ein eingespieltes Team mit echtem Meistertitel, von der ersten Skizze
+            bis zur letzten Silikonfuge.
+          </p>
+          <p class="mt-8 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground">
+            Seit 2005 sind wir Ihre Adresse für Sanitär- und Heizungstechnik in Springe.
+            Wir arbeiten herstellerunabhängig, beraten ehrlich und planen so, dass am Ende
+            alles passt — die Funktion, das Design und auch das Budget.
+          </p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  {/* LEISTUNGEN */}
+  <section id="leistungen" class="py-24 md:py-32">
+    <Container>
+      <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div class="max-w-2xl">
+          <div class="flex items-center gap-3">
+            <span class="h-px w-10 bg-accent"></span>
+            <span class="text-xs uppercase tracking-[0.22em] text-muted-foreground">Unsere Leistungen</span>
+          </div>
+          <h2 class="font-display mt-5 text-balance text-4xl font-medium leading-[1.05] tracking-tight text-foreground md:text-5xl">
+            Vier Gewerke. Ein Ansprechpartner.
+          </h2>
+        </div>
+        <a href="/leistungen" class="inline-flex items-center gap-2 text-sm text-foreground hover:text-accent">
+          Alle Leistungen ansehen <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <div class="mt-16 grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-2">
+        {services.map((s) => (
+          <a
+            href={s.href}
+            class="group relative flex flex-col bg-surface p-8 transition hover:bg-background md:p-10"
+          >
+            <span class="font-display text-xs uppercase tracking-[0.22em] text-accent">{s.no}</span>
+            <h3 class="font-display mt-6 text-3xl tracking-tight text-foreground md:text-4xl">{s.title}</h3>
+            <p class="mt-4 max-w-md text-base leading-relaxed text-muted-foreground">{s.desc}</p>
+            <span class="mt-10 inline-flex items-center gap-2 text-sm text-foreground">
+              Mehr erfahren
+              <span aria-hidden="true" class="transition-transform group-hover:translate-x-1">→</span>
+            </span>
+          </a>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  {/* FEATURE BAND — Badplanung */}
+  <section class="border-y border-border bg-surface">
+    <Container>
+      <div class="grid gap-12 py-24 md:grid-cols-12 md:gap-16 md:py-32">
+        <div class="md:col-span-6">
+          <div class="aspect-[5/6] overflow-hidden rounded-sm bg-muted">
+            <img
+              src="/images/bath-studio.jpg"
+              alt="Großzügiges Badstudio mit Ausstellungsstücken und natürlichem Licht"
+              class="h-full w-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="flex flex-col justify-center md:col-span-6">
+          <span class="text-xs uppercase tracking-[0.22em] text-muted-foreground">Badplanung & Sanitär</span>
+          <h2 class="font-display mt-5 text-balance text-4xl font-medium leading-[1.05] tracking-tight text-foreground md:text-5xl">
+            Ihr neues Bad — anschaulich, bevor es entsteht.
+          </h2>
+          <p class="mt-6 text-pretty text-base leading-relaxed text-muted-foreground">
+            Lassen Sie sich von unserem großzügigen Badstudio inspirieren. Mit fachgerechter
+            Handzeichnung und 3-D-Badplanung zeigen wir Ihnen Ihr neues Bad lange vor dem
+            ersten Hammerschlag — damit Sie genau wissen, worauf Sie sich freuen können.
+          </p>
+          <ul class="mt-10 grid grid-cols-2 gap-x-8 gap-y-3 text-sm text-foreground">
+            <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-accent"></span>Beratung vor Ort</li>
+            <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-accent"></span>Aufmaß &amp; Bestand</li>
+            <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-accent"></span>3-D-Badplanung</li>
+            <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-accent"></span>Badkonfigurator</li>
+            <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-accent"></span>Handzeichnung</li>
+            <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-accent"></span>Kostenkalkulation</li>
+            <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-accent"></span>Finanzierung</li>
+            <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-accent"></span>Montage &amp; Service</li>
+          </ul>
+          <div class="mt-10">
+            <a
+              href="/badplanung"
+              class="inline-flex items-center gap-2 rounded-sm border border-foreground px-6 py-3 text-sm font-medium text-foreground transition hover:bg-foreground hover:text-background"
+            >
+              Mehr zur Badplanung <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  {/* PROCESS */}
+  <section class="py-24 md:py-32">
+    <Container>
+      <div class="max-w-2xl">
+        <div class="flex items-center gap-3">
+          <span class="h-px w-10 bg-accent"></span>
+          <span class="text-xs uppercase tracking-[0.22em] text-muted-foreground">So arbeiten wir</span>
+        </div>
+        <h2 class="font-display mt-5 text-balance text-4xl font-medium leading-[1.05] tracking-tight text-foreground md:text-5xl">
+          Ein klarer Weg vom ersten Gespräch bis zur Übergabe.
+        </h2>
+      </div>
+
+      <ol class="mt-16 grid gap-px overflow-hidden border border-border bg-border md:grid-cols-4">
+        {steps.map((step) => (
+          <li class="flex flex-col bg-background p-8">
+            <span class="font-display text-xs uppercase tracking-[0.22em] text-accent">{step.no}</span>
+            <h3 class="font-display mt-5 text-xl tracking-tight text-foreground">{step.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{step.desc}</p>
+          </li>
+        ))}
+      </ol>
+    </Container>
+  </section>
+
+  {/* TESTIMONIALS */}
+  <section class="bg-primary text-primary-foreground">
+    <Container>
+      <div class="py-24 md:py-32">
+        <div class="flex items-center gap-3">
+          <span class="h-px w-10 bg-accent"></span>
+          <span class="text-xs uppercase tracking-[0.22em] text-primary-foreground/60">Stimmen unserer Kunden</span>
+        </div>
+        <h2 class="font-display mt-5 max-w-3xl text-balance text-4xl font-medium leading-[1.05] tracking-tight md:text-5xl">
+          Vertrauen, das man hört.
+        </h2>
+
+        <div class="mt-16 grid gap-px bg-primary-foreground/10 md:grid-cols-3">
+          {testimonials.map((t) => (
+            <figure class="flex flex-col gap-6 bg-primary p-8 md:p-10">
+              <span aria-hidden="true" class="font-display text-4xl leading-none text-accent">&ldquo;</span>
+              <blockquote class="font-display text-lg leading-relaxed text-primary-foreground">
+                {t.quote}
+              </blockquote>
+              <figcaption class="mt-auto border-t border-primary-foreground/10 pt-5 text-sm">
+                <span class="text-primary-foreground">{t.name}</span>
+                <span class="text-primary-foreground/50"> · {t.place}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  {/* CTA */}
+  <section class="py-24 md:py-32">
+    <Container>
+      <div class="grid gap-10 md:grid-cols-12 md:items-end">
+        <div class="md:col-span-7">
+          <div class="flex items-center gap-3">
+            <span class="h-px w-10 bg-accent"></span>
+            <span class="text-xs uppercase tracking-[0.22em] text-muted-foreground">Lassen Sie uns sprechen</span>
+          </div>
+          <h2 class="font-display mt-5 text-balance text-5xl font-medium leading-[1.02] tracking-tight text-foreground md:text-6xl">
+            Wir freuen uns, bald auch Ihr Projekt umsetzen zu dürfen.
+          </h2>
+        </div>
+        <div class="flex flex-col gap-4 md:col-span-5 md:items-end">
+          <a
+            href="/kontakt"
+            class="inline-flex items-center justify-center gap-2 rounded-sm bg-primary px-7 py-4 text-sm font-medium text-primary-foreground transition hover:bg-foreground"
+          >
+            Termin vereinbaren <span aria-hidden="true">→</span>
+          </a>
+          <a href="tel:+4951419328930" class="text-sm text-muted-foreground hover:text-foreground">
+            oder anrufen: <span class="text-foreground">05141 / 93 28 930</span>
+          </a>
+        </div>
+      </div>
+    </Container>
+  </section>
 </Layout>

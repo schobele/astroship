@@ -1,0 +1,92 @@
+---
+import Container from "@/components/container.astro";
+import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+
+const menu = [
+  { title: "Start", path: "/" },
+  { title: "Leistungen", path: "/leistungen" },
+  { title: "Badplanung", path: "/badplanung" },
+  { title: "Über uns", path: "/ueber-uns" },
+  { title: "Kontakt", path: "/kontakt" },
+];
+
+const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
+---
+
+<header class="border-b border-border/60 bg-background/80 backdrop-blur sticky top-0 z-40">
+  <Container>
+    <Astronav>
+      <div class="flex w-full items-center justify-between py-5">
+        <a href="/" class="group flex items-center gap-3" aria-label="Thorsten Hungerland — Startseite">
+          <span aria-hidden="true" class="inline-flex h-9 w-9 items-center justify-center rounded-sm bg-primary text-primary-foreground font-display text-base">
+            TH
+          </span>
+          <span class="flex flex-col leading-none">
+            <span class="font-display text-base font-semibold tracking-tight text-foreground">Thorsten Hungerland</span>
+            <span class="text-[11px] uppercase tracking-[0.18em] text-muted-foreground mt-1">Sanitär · Heizung · Meisterbetrieb</span>
+          </span>
+        </a>
+
+        <div class="lg:hidden">
+          <MenuIcon class="h-5 w-5 text-foreground" />
+        </div>
+
+        <MenuItems class="hidden lg:flex items-center gap-1">
+          <ul class="flex items-center gap-1">
+            {menu.map((item) => {
+              const isActive = item.path === "/" ? pathname === "/" : pathname.startsWith(item.path);
+              return (
+                <li>
+                  <a
+                    href={item.path}
+                    class:list={[
+                      "relative px-3 py-2 text-sm transition-colors",
+                      isActive
+                        ? "text-foreground"
+                        : "text-muted-foreground hover:text-foreground",
+                    ]}
+                  >
+                    {item.title}
+                    {isActive && (
+                      <span aria-hidden="true" class="absolute left-3 right-3 -bottom-px h-px bg-accent"></span>
+                    )}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+          <a
+            href="tel:+4951419328930"
+            class="ml-4 inline-flex items-center gap-2 rounded-sm bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground transition hover:bg-foreground"
+          >
+            <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+            Termin vereinbaren
+          </a>
+        </MenuItems>
+      </div>
+
+      <MenuItems class="hidden lg:hidden pb-4">
+        <ul class="flex flex-col gap-1 border-t border-border pt-4">
+          {menu.map((item) => (
+            <li>
+              <a
+                href={item.path}
+                class="block py-2 text-base text-foreground hover:text-accent"
+              >
+                {item.title}
+              </a>
+            </li>
+          ))}
+          <li class="pt-3">
+            <a
+              href="tel:+4951419328930"
+              class="inline-flex w-full items-center justify-center gap-2 rounded-sm bg-primary px-4 py-3 text-sm font-medium text-primary-foreground"
+            >
+              Termin vereinbaren
+            </a>
+          </li>
+        </ul>
+      </MenuItems>
+    </Astronav>
+  </Container>
+</header>
